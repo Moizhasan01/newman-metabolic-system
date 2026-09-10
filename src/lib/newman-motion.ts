@@ -122,7 +122,7 @@ export function initNewmanSite(): () => void {
     const i = p < 0.34 ? 0 : p < 0.7 ? 1 : 2;
     if (i !== lastState) {
       lastState = i;
-      stateLine.textContent = STATES[i];
+      stateLine.textContent = STATES[i]!;
       tickRows.forEach((r) => r.classList.toggle('on', +r.dataset['at']! === i));
     }
   }
@@ -191,8 +191,8 @@ export function initNewmanSite(): () => void {
       cx.strokeStyle = 'rgba(79,208,122,' + ((0.20 * (order - 0.28)) / 0.72 * life).toFixed(3) + ')';
       cx.beginPath();
       for (let i = 0; i < cells.length - 1; i += 1) {
-        const a = cells[i],
-          b = cells[i + 1];
+        const a = cells[i]!,
+          b = cells[i + 1]!;
         const ax = a.ox * cosS - a.oy * sinS,
           ay = a.ox * sinS + a.oy * cosS;
         const bx = b.ox * cosS - b.oy * sinS,
@@ -204,7 +204,7 @@ export function initNewmanSite(): () => void {
     }
 
     for (let i = 0; i < cells.length; i++) {
-      const c = cells[i];
+      const c = cells[i]!;
       const rx = c.ox * cosS - c.oy * sinS,
         ry = c.ox * sinS + c.oy * cosS;
       // starved cells drift and jitter; fed cells settle and breathe together
@@ -403,7 +403,7 @@ export function initNewmanSite(): () => void {
   }) as EventListener);
   const rMap = ['amazon', 'barnesnoble', 'bookshop'];
   document.querySelectorAll<HTMLAnchorElement>('[data-retailer]').forEach((a, i) => {
-    const u = CONFIG.retailers[rMap[i]];
+    const u = CONFIG.retailers[rMap[i]!];
     if (u && u !== '#') a.href = u;
   });
   updateCart();
