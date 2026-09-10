@@ -455,7 +455,7 @@ function NewmanSite() {
           <form className="stack g10" id="signupForm" data-reveal="" style={{ background: "rgba(4,16,31,.55)", padding: "clamp(1.5rem,3vw,2.2rem)", border: "1px solid rgba(111,185,74,.3)" }}>
             <label className="small" htmlFor="em" style={{ color: "#C6D7E9" }}>Where should we send it?</label>
             <div className="field">
-              <input id="em" type="email" name="email" placeholder="you@example.com" required autocomplete="email" />
+              <input id="em" type="email" name="email" placeholder="you@example.com" required autoComplete="email" />
               <button className="btn btn-go" type="submit">Send me the guide</button>
             </div>
             <p className="small" id="signupMsg">One email with the guide, then the occasional note from Allen.
